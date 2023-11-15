@@ -1,6 +1,7 @@
 package in.rafiit;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,6 +55,16 @@ public class ProductController {
 		model.addAttribute("msg", "Product Deleted");
 		model.addAttribute("products", repo.findAll());
 		return "data";
+	}
+	
+	@GetMapping("/edit")
+	public String editProduct(@RequestParam("pid") Integer pid,Model model) {
+		Optional<Product> findById = repo.findById(pid);
+		if(findById.isPresent()) {
+			Product product = findById.get();
+			model.addAttribute("product", product);
+		}
+		return "index";
 	}
 
 }

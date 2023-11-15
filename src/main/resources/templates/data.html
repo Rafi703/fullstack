@@ -37,7 +37,7 @@
 				<td>
 					<a th:href="@{/delete?(pid=${p.pid})}" onclick="return deleteConfirm()" class="btn btn-danger">Delete</a>
 				
-					<a href="" class="btn btn-info">update</a>
+					<a th:href="@{/edit?(pid=${p.pid})}" class="btn btn-info">update</a>
 				</td>
 			</tr>
 			<tr>
